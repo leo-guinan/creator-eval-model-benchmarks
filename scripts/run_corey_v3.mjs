@@ -11,8 +11,12 @@ const discovery = await discoverFrameworkSources(sourceUrl);
 const results = [];
 for (const model of models) {
   const started = Date.now();
-  try { results.push({ model, elapsed_ms: Date.now() - started, ...await generateV3(discovery, { OPENROUTER_API_KEY: apiKey, OPENROUTER_MODEL: model }) }); }
-  catch (error) { results.push({ model, elapsed_ms: Date.now() - started, status: 'error', error: error.message, request_id: error.request_id || null, response_id: error.response_id || null }); }
+  try {
+    const result = await generateV3(discovery, { OPENROUTER_API_KEY: apiKey, OPENROUTER_MODEL: model });
+    results.push({ model, elapsed_ms: Date.now() - started, ...result });
+  } catch (error) {
+    results.push({ model, elapsed_ms: Date.now() - started, status: 'error', error: error.message, request_id: error.request_id || null, response_id: error.response_id || null, usage: error.usage || null });
+  }
 }
 const timestamp = new Date().toISOString();
 const outputDir = join('data', new URL(sourceUrl).hostname.replace(/^www\./, ''), timestamp.slice(0, 10));

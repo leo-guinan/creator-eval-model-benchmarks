@@ -50,6 +50,14 @@ V3 also makes question contracts executable rather than decorative. A forced com
 
 The V3 runner is `scripts/run_corey_v3.mjs`. It requires a process-environment OpenRouter key and writes timestamped, two-stage receipts. No V3 model call is represented as completed until the receipt exists.
 
+The first V3 live pass is recorded in `data/coreywilkspsyd.com/2026-10-12/v3-2026-10-12T235541Z.json`:
+
+- GPT-5.6 Luna: generated a six-framework extraction and six-question instrument; `score_semantics=bottleneck_severity`.
+- Claude Haiku 5.5: generated an eight-framework extraction and six-question instrument; `score_semantics=categorical`.
+- DeepSeek V4 Flash: failed with no usable text after a bounded 45-second request; preserved as a failure receipt, not silently retried.
+
+The generated artifacts included executable forced comparisons and artifact-judgment items. The main result is not that the models are now correct. It is that the benchmark can finally distinguish source-grounded framework extraction from downstream instrument construction. DeepSeek's failure is operational evidence, not a quality score.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.

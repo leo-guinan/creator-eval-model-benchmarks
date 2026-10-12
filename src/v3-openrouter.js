@@ -18,7 +18,7 @@ async function call(messages, env, fetchImpl) {
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) { const error = new Error(`OpenRouter returned HTTP ${response.status}.`); error.request_id = requestId; throw error; }
     const content = contentText(payload?.choices?.[0]?.message?.content);
-    if (!content) { const error = new Error('Model returned no text content.'); error.request_id = requestId; error.response_id = payload.id || null; throw error; }
+    if (!content) { const error = new Error(`Model returned no text content (${payload?.choices?.[0]?.finish_reason || 'unknown finish reason'}).`); error.request_id = requestId; error.response_id = payload.id || null; error.usage = payload.usage || null; throw error; }
     return { request_id: requestId, response_id: payload.id || null, effective_model: payload.model || model, usage: payload.usage || null, raw: parseJsonContent(content) };
   } finally { clearTimeout(timer); }
 }
