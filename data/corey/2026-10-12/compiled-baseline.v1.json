@@ -1,0 +1,36 @@
+{
+  "schema_version": "creator-eval.v1",
+  "slug": "corey-action-gap",
+  "source": {
+    "host": "coreywilkspsyd.com",
+    "coverage": "compiled public-source draft",
+    "compiled_at": "2026-10-12",
+    "claim_boundary": "This is an editable interpretation of public work, not a diagnosis or a claim of Corey's endorsement."
+  },
+  "title": "The Action Gap Assessment",
+  "question": "What's most likely preventing you from turning your ambition into action right now?",
+  "dimensions": [
+    { "name": "Fear of failure", "note": "Avoiding action because the outcome might disconfirm capability." },
+    { "name": "Fear of ridicule", "note": "Avoiding visibility because of anticipated judgment." },
+    { "name": "Fear of uncertainty", "note": "Delaying action until more information feels available." },
+    { "name": "Fear of success", "note": "Resisting the identity, responsibility, or change success would require." },
+    { "name": "Avoidance through activity", "note": "Staying busy enough to avoid the decision underneath the work." }
+  ],
+  "questions": [
+    { "text": "You have enough information to make a reversible decision, but still want to research. What is happening?", "tag": "uncertainty" },
+    { "text": "Which person is showing the larger Action Gap?", "tag": "comparative judgment" },
+    { "text": "What would become possible if the decision were made before you felt ready?", "tag": "readiness" }
+  ],
+  "calibration": [
+    { "dimension": "Fear of failure", "decision": "pending", "evidence_link": "" },
+    { "dimension": "Fear of ridicule", "decision": "pending", "evidence_link": "" },
+    { "dimension": "Fear of uncertainty", "decision": "pending", "evidence_link": "" },
+    { "dimension": "Fear of success", "decision": "pending", "evidence_link": "" },
+    { "dimension": "Avoidance through activity", "decision": "pending", "evidence_link": "" }
+  ],
+  "reporting": {
+    "fields": ["score by dimension", "evidence responses", "interpretation", "confidence", "recommended experiment", "re-test date"],
+    "provenance_chain": ["observation", "framework", "interpretation", "recommendation"],
+    "attribution": "unknown until creator calibration and respondent evidence exist"
+  }
+}

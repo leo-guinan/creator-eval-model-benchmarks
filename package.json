@@ -1,0 +1,9 @@
+{
+  "name": "creator-eval-model-benchmarks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "python3 -m pytest -q",
+    "syntax": "node --check src/site-prompt.js && node --check src/openrouter.js && node --check scripts/run_corey_benchmark.mjs"
+  }
+}
