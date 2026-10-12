@@ -1,0 +1,22 @@
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { discoverFrameworkSources } from '../src/source-discovery.js';
+import { generateV3 } from '../src/v3-openrouter.js';
+
+const apiKey = process.env.OPENROUTER_API_KEY;
+if (!apiKey) throw new Error('OPENROUTER_API_KEY is required in the process environment.');
+const sourceUrl = process.env.CREATOR_EVAL_SOURCE_URL || 'https://coreywilkspsyd.com/';
+const models = (process.env.CREATOR_EVAL_MODELS || 'deepseek/deepseek-v4-flash-0731,openai/gpt-5.6-luna,anthropic/claude-haiku-5.5').split(',').map((x) => x.trim()).filter(Boolean);
+const discovery = await discoverFrameworkSources(sourceUrl);
+const results = [];
+for (const model of models) {
+  const started = Date.now();
+  try { results.push({ model, elapsed_ms: Date.now() - started, ...await generateV3(discovery, { OPENROUTER_API_KEY: apiKey, OPENROUTER_MODEL: model }) }); }
+  catch (error) { results.push({ model, elapsed_ms: Date.now() - started, status: 'error', error: error.message, request_id: error.request_id || null, response_id: error.response_id || null }); }
+}
+const timestamp = new Date().toISOString();
+const outputDir = join('data', new URL(sourceUrl).hostname.replace(/^www\./, ''), timestamp.slice(0, 10));
+mkdirSync(outputDir, { recursive: true });
+const output = join(outputDir, `v3-${timestamp.replaceAll(':', '').replace(/\.\d{3}Z$/, 'Z')}.json`);
+writeFileSync(output, JSON.stringify({ captured_at: timestamp, discovery, models: results }, null, 2) + '\n');
+console.log(JSON.stringify({ output, pages: discovery.pages.length, models: results.length, statuses: results.map(({ model, status }) => ({ model, status })) }));

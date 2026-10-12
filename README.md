@@ -33,9 +33,26 @@ All three set `assessment_subject` to `creator_audience`. The outputs now includ
 
 The model outputs are in `data/corey/2026-10-12/models.json`. Provider response IDs and usage receipts are preserved. API keys are not.
 
+## V3 direction: source discovery before instrument construction
+
+V3 separates two tasks that V2 combined:
+
+1. `src/source-discovery.js` ranks same-host links using framework-language signals and fetches at most five candidate pages in addition to the homepage.
+2. `src/v3-prompt.js` first extracts the creator's judgment model, then constructs a respondent-facing instrument from that extracted model.
+
+The live Corey discovery receipt is `data/corey/2026-10-12/source-discovery-v3.json`. It selected and fetched three framework-bearing pages in addition to the homepage:
+
+- `/the-four-horsemen-of-fear/`
+- `/articles/`
+- `/liminal-tension-imposter-syndrome/`
+
+V3 also makes question contracts executable rather than decorative. A forced comparison must provide at least two `response_options`; an artifact judgment must require an artifact and define its `input_spec`; every instrument declares `score_semantics` (`capability`, `bottleneck_severity`, `readiness`, or `categorical`).
+
+The V3 runner is `scripts/run_corey_v3.mjs`. It requires a process-environment OpenRouter key and writes timestamped, two-stage receipts. No V3 model call is represented as completed until the receipt exists.
+
 ## Boundaries
 
-The site capture is bounded to one public URL, the first 1.5 MB of the response, and the first 12,000 normalized text characters. No authentication or private pages are used. The models see the same normalized source payload and prompt contract.
+Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.
 
 Model output is a reviewable hypothesis. It is not a diagnosis, stable trait score, causal finding, endorsement, or validated assessment. Missing evidence must remain missing.
 
