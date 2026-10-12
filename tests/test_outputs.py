@@ -28,13 +28,15 @@ def test_all_corey_outputs_pass_contract():
         assert result['response_id']
         draft = result['draft']
         assert draft['title']
+        assert draft['assessment_subject'] == 'creator_audience'
         assert draft['question']
         assert 1 <= len(draft['dimensions']) <= 8
         assert 1 <= len(draft['questions']) <= 8
         assert draft['claim_boundary']
         assert isinstance(draft['missing_evidence'], list)
         assert draft['evidence']['host'] == 'coreywilkspsyd.com'
-        assert draft['provenance']['prompt_version'] == 'site-eval-draft.v1'
+        assert draft['provenance']['prompt_version'] == 'site-eval-draft.v2'
+        assert all(question['response_type'] in {'self_report', 'scenario', 'forced_comparison', 'artifact_judgment'} for question in draft['questions'])
         assert draft['provenance']['requested_model'] == result['model']
         assert draft['provenance']['effective_model'] == result['effective_model']
 

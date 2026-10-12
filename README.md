@@ -20,12 +20,16 @@ This is a benchmark of instrument behavior, not a claim that any model found the
 
 Run date: 2026-10-12.
 
-All three models returned valid structured drafts after the provider adapter was adjusted for model-specific reasoning behavior and tolerant JSON extraction.
+The first run exposed a semantic failure: all three models evaluated the website/creator rather than generating an assessment for the creator's audience. Prompt version `site-eval-draft.v2` makes the subject relationship explicit and requires respondent-facing question types and behavioral scoring fields.
 
-- DeepSeek V4 Flash 0731: 8 dimensions, 8 questions, reported cost $0.0007858.
-- GPT-5.6 Luna: 7 dimensions, 8 questions, reported cost $0.0033245.
-- Claude Haiku 5.5: 8 dimensions, 8 questions, reported cost $0.0030296.
-- Total reported cost: $0.0071399.
+The corrected run returned valid structured drafts from all three models.
+
+- DeepSeek V4 Flash 0731: 6 dimensions, 6 questions, reported cost $0.00108184.
+- GPT-5.6 Luna: 5 dimensions, 5 questions, reported cost $0.00407535.
+- Claude Haiku 5.5: 6 dimensions, 6 questions, reported cost $0.0029639.
+- Total reported cost: $0.00812109.
+
+All three set `assessment_subject` to `creator_audience`. The outputs now include self-report, scenario, and forced-comparison item types rather than only expert-interview questions. This is a prompt correction, not proof of framework fidelity.
 
 The model outputs are in `data/corey/2026-10-12/models.json`. Provider response IDs and usage receipts are preserved. API keys are not.
 

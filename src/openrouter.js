@@ -17,7 +17,7 @@ export async function generateSiteDraft(source, env, fetchImpl = fetch) {
     : { effort: 'low', exclude: true };
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 25_000);
+  const timer = setTimeout(() => controller.abort(), 45_000);
   try {
     const response = await fetchImpl(OPENROUTER_URL, {
       method: 'POST',
@@ -31,7 +31,7 @@ export async function generateSiteDraft(source, env, fetchImpl = fetch) {
         model: requestedModel,
         messages: buildSiteMessages(source),
         temperature: 0.1,
-        max_tokens: 12000,
+        max_tokens: 16000,
         reasoning,
         response_format: { type: 'json_object' }
       }),
