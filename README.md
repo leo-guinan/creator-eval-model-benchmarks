@@ -111,6 +111,21 @@ The V6 compiler is `src/v6-judge-the-judge.js`. The synthetic packet is `data/co
 
 The V5 `forced_classification` field is now named `classification_withheld`: a strong candidate can exist while the compiler correctly declines to choose it.
 
+## V7: executable rule learning
+
+V7 removes the manual `after_overrides` step from the calibration demo. Natural-language creator corrections are parsed into executable rule deltas, then applied to existing and unseen cases.
+
+The acceptance test is the uncertainty correction:
+
+- Creator correction: reversibility and cost must be known before calling something Fear of Uncertainty.
+- Case B changes from high-confidence Uncertainty to classification withheld, with `genuine_information_gap` preserved.
+- Fresh Case E contains a cheap reversible decision, a clear next step, and continued information-seeking.
+- The learned rule classifies E as Fear of Uncertainty with high confidence.
+
+The second learned rule makes Ridicule require anticipated social evaluation rather than qualification doubt alone. The V7 implementation is `src/v7-rule-learner.js`; the synthetic correction fixture is `v7-rule-learning-v1.json`; the compiled receipt is `v7-rule-learning-receipt-v1.json`.
+
+V7 also decomposes Judgment Distance into mechanism agreement, alternative-explanation agreement, boundary agreement, and intervention agreement. In the synthetic run, aggregate distance moves from `0.2778` before correction to `0.0556` after rule application. This is a protocol demonstration, not a real Corey measurement.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.

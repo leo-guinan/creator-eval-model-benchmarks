@@ -1,0 +1,483 @@
+{
+  "session_id": "corey-judge-the-judge-v7-synthetic",
+  "status": "synthetic_rule_learning_compiled",
+  "corrections": [
+    {
+      "target_construct_id": "four_horsemen.fear_of_uncertainty",
+      "correction": "I need to know how reversible and costly the decision is before calling this Fear of Uncertainty."
+    },
+    {
+      "target_construct_id": "four_horsemen.fear_of_ridicule",
+      "correction": "Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment."
+    }
+  ],
+  "learned_rules": [
+    {
+      "rule_id": "uncertainty.requires_decision_context",
+      "construct_id": "four_horsemen.fear_of_uncertainty",
+      "required_positive_signal": "continued information seeking after a sufficiently informed, low-cost or reversible next step is available",
+      "insufficient_alone": [
+        "information seeking",
+        "lack of confidence",
+        "not enough information"
+      ],
+      "required_fields": [
+        "decision_reversibility",
+        "expected_cost_if_wrong",
+        "next_step_clarity"
+      ],
+      "source_correction": "I need to know how reversible and costly the decision is before calling this Fear of Uncertainty."
+    },
+    {
+      "rule_id": "ridicule.requires_social_evaluation",
+      "construct_id": "four_horsemen.fear_of_ridicule",
+      "required_positive_signal": "anticipated evaluation or judgment by another person or group",
+      "insufficient_alone": [
+        "qualification doubt",
+        "self-doubt about capability"
+      ],
+      "required_fields": [
+        "anticipated_social_evaluation"
+      ],
+      "source_correction": "Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment."
+    }
+  ],
+  "before": [
+    {
+      "case_id": "B",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_uncertainty",
+        "support": 0.91,
+        "confidence": "high"
+      },
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_uncertainty",
+          "support": 0.91,
+          "evidence": [
+            "Twelve books, three courses, and five interviews have not produced a decision."
+          ],
+          "contradictions": [
+            "The decision's reversibility and cost are not yet known."
+          ]
+        }
+      ],
+      "confidence": "high",
+      "impact": 0.78,
+      "response_capability": 0.28,
+      "alternatives": [
+        {
+          "name": "genuine_information_gap",
+          "supports": [
+            0.48
+          ],
+          "evidence": [
+            "The choice may be expensive to reverse."
+          ],
+          "support": 0.48
+        }
+      ],
+      "alternative_explanations_survived": [
+        "genuine_information_gap"
+      ],
+      "classification_withheld": false,
+      "supporting_evidence": [
+        {
+          "item_id": "B1",
+          "text": "Twelve books, three courses, and five interviews have not produced a decision.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "B1",
+          "text": "The decision's reversibility and cost are not yet known.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "next_discriminating_experiment": "Set an information budget only after documenting reversibility and expected cost.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    },
+    {
+      "case_id": "E",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_uncertainty",
+        "support": 0.61,
+        "confidence": "moderate"
+      },
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_uncertainty",
+          "support": 0.61,
+          "evidence": [
+            "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear."
+          ],
+          "contradictions": [
+            "MISSING"
+          ]
+        }
+      ],
+      "confidence": "moderate",
+      "impact": 0.72,
+      "response_capability": 0.33,
+      "alternatives": [],
+      "alternative_explanations_survived": [],
+      "classification_withheld": false,
+      "supporting_evidence": [
+        {
+          "item_id": "E1",
+          "text": "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "E1",
+          "text": "MISSING",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "next_discriminating_experiment": "Make the reversible decision within the stated information budget and record the result.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    },
+    {
+      "case_id": "A",
+      "primary_candidate": null,
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_failure",
+          "support": 0.72,
+          "evidence": [
+            "Launch delay is paired with repeated qualification doubts."
+          ],
+          "contradictions": [
+            "No direct evidence of anticipated public judgment yet."
+          ]
+        },
+        {
+          "construct_id": "four_horsemen.fear_of_ridicule",
+          "support": 0.66,
+          "evidence": [
+            "The respondent worries about being judged as unqualified."
+          ],
+          "contradictions": []
+        }
+      ],
+      "confidence": "low",
+      "impact": 0.68,
+      "response_capability": 0.35,
+      "alternatives": [
+        {
+          "name": "skill_gap",
+          "supports": [
+            0.32,
+            0.32
+          ],
+          "evidence": [
+            "Qualification concerns may reflect a real capability gap.",
+            "Qualification concerns may reflect a real capability gap."
+          ],
+          "support": 0.32
+        }
+      ],
+      "alternative_explanations_survived": [
+        "skill_gap"
+      ],
+      "classification_withheld": true,
+      "supporting_evidence": [
+        {
+          "item_id": "A1",
+          "text": "Launch delay is paired with repeated qualification doubts.",
+          "construct_id": "four_horsemen.fear_of_failure"
+        },
+        {
+          "item_id": "A2",
+          "text": "The respondent worries about being judged as unqualified.",
+          "construct_id": "four_horsemen.fear_of_ridicule"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "A1",
+          "text": "No direct evidence of anticipated public judgment yet.",
+          "construct_id": "four_horsemen.fear_of_failure"
+        }
+      ],
+      "next_discriminating_experiment": "Ask whether anticipated judgment by another person is driving the delay.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    }
+  ],
+  "after": [
+    {
+      "case_id": "B",
+      "primary_candidate": null,
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_uncertainty",
+          "support": 0.55,
+          "evidence": [
+            "Twelve books, three courses, and five interviews have not produced a decision."
+          ],
+          "contradictions": [
+            "The decision's reversibility and cost are not yet known."
+          ]
+        }
+      ],
+      "confidence": "low",
+      "impact": 0.78,
+      "response_capability": 0.28,
+      "alternatives": [
+        {
+          "name": "genuine_information_gap",
+          "supports": [
+            0.48,
+            0.48
+          ],
+          "evidence": [
+            "The choice may be expensive to reverse.",
+            "Decision reversibility or expected cost remains unknown."
+          ],
+          "support": 0.48
+        }
+      ],
+      "alternative_explanations_survived": [
+        "genuine_information_gap"
+      ],
+      "classification_withheld": false,
+      "supporting_evidence": [
+        {
+          "item_id": "B1",
+          "text": "Twelve books, three courses, and five interviews have not produced a decision.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "B1",
+          "text": "The decision's reversibility and cost are not yet known.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "next_discriminating_experiment": "Set an information budget only after documenting reversibility and expected cost.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    },
+    {
+      "case_id": "E",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_uncertainty",
+        "support": 0.9,
+        "confidence": "high"
+      },
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_uncertainty",
+          "support": 0.9,
+          "evidence": [
+            "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear."
+          ],
+          "contradictions": [
+            "MISSING"
+          ]
+        }
+      ],
+      "confidence": "high",
+      "impact": 0.72,
+      "response_capability": 0.33,
+      "alternatives": [],
+      "alternative_explanations_survived": [],
+      "classification_withheld": false,
+      "supporting_evidence": [
+        {
+          "item_id": "E1",
+          "text": "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear.",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "E1",
+          "text": "MISSING",
+          "construct_id": "four_horsemen.fear_of_uncertainty"
+        }
+      ],
+      "next_discriminating_experiment": "Make the reversible decision within the stated information budget and record the result.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    },
+    {
+      "case_id": "A",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_failure",
+        "support": 0.72,
+        "confidence": "moderate"
+      },
+      "candidate_mechanisms": [
+        {
+          "construct_id": "four_horsemen.fear_of_failure",
+          "support": 0.72,
+          "evidence": [
+            "Launch delay is paired with repeated qualification doubts."
+          ],
+          "contradictions": [
+            "No direct evidence of anticipated public judgment yet."
+          ]
+        },
+        {
+          "construct_id": "four_horsemen.fear_of_ridicule",
+          "support": 0.31,
+          "evidence": [
+            "The respondent worries about being judged as unqualified."
+          ],
+          "contradictions": []
+        }
+      ],
+      "confidence": "moderate",
+      "impact": 0.68,
+      "response_capability": 0.35,
+      "alternatives": [
+        {
+          "name": "skill_gap",
+          "supports": [
+            0.32,
+            0.32,
+            0.32
+          ],
+          "evidence": [
+            "Qualification concerns may reflect a real capability gap.",
+            "Qualification concerns may reflect a real capability gap.",
+            "Qualification concern without anticipated social evaluation."
+          ],
+          "support": 0.32
+        }
+      ],
+      "alternative_explanations_survived": [
+        "skill_gap"
+      ],
+      "classification_withheld": false,
+      "supporting_evidence": [
+        {
+          "item_id": "A1",
+          "text": "Launch delay is paired with repeated qualification doubts.",
+          "construct_id": "four_horsemen.fear_of_failure"
+        },
+        {
+          "item_id": "A2",
+          "text": "The respondent worries about being judged as unqualified.",
+          "construct_id": "four_horsemen.fear_of_ridicule"
+        }
+      ],
+      "disconfirming_evidence": [
+        {
+          "item_id": "A1",
+          "text": "No direct evidence of anticipated public judgment yet.",
+          "construct_id": "four_horsemen.fear_of_failure"
+        }
+      ],
+      "next_discriminating_experiment": "Ask whether anticipated judgment by another person is driving the delay.",
+      "retest": "14 days",
+      "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+    }
+  ],
+  "fresh_case_generalization": {
+    "case_id": "E",
+    "primary_candidate": {
+      "construct_id": "four_horsemen.fear_of_uncertainty",
+      "support": 0.9,
+      "confidence": "high"
+    },
+    "candidate_mechanisms": [
+      {
+        "construct_id": "four_horsemen.fear_of_uncertainty",
+        "support": 0.9,
+        "evidence": [
+          "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear."
+        ],
+        "contradictions": [
+          "MISSING"
+        ]
+      }
+    ],
+    "confidence": "high",
+    "impact": 0.72,
+    "response_capability": 0.33,
+    "alternatives": [],
+    "alternative_explanations_survived": [],
+    "classification_withheld": false,
+    "supporting_evidence": [
+      {
+        "item_id": "E1",
+        "text": "The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear.",
+        "construct_id": "four_horsemen.fear_of_uncertainty"
+      }
+    ],
+    "disconfirming_evidence": [
+      {
+        "item_id": "E1",
+        "text": "MISSING",
+        "construct_id": "four_horsemen.fear_of_uncertainty"
+      }
+    ],
+    "next_discriminating_experiment": "Make the reversible decision within the stated information budget and record the result.",
+    "retest": "14 days",
+    "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+  },
+  "distance_before": {
+    "rows": [
+      {
+        "case_id": "B",
+        "mechanism_agreement": 0,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 1
+      },
+      {
+        "case_id": "E",
+        "mechanism_agreement": 1,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 1
+      },
+      {
+        "case_id": "A",
+        "mechanism_agreement": 0,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 0.5
+      }
+    ],
+    "aggregate_judgment_distance": 0.2777777777777778,
+    "claim_boundary": "Judgment Distance is a calibration comparison, not Corey Accuracy or proof of framework validity."
+  },
+  "distance_after": {
+    "rows": [
+      {
+        "case_id": "B",
+        "mechanism_agreement": 1,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 1
+      },
+      {
+        "case_id": "E",
+        "mechanism_agreement": 1,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 1
+      },
+      {
+        "case_id": "A",
+        "mechanism_agreement": 1,
+        "alternative_explanation_agreement": 1,
+        "boundary_agreement": null,
+        "intervention_agreement": 0.5
+      }
+    ],
+    "aggregate_judgment_distance": 0.05555555555555558,
+    "claim_boundary": "Judgment Distance is a calibration comparison, not Corey Accuracy or proof of framework validity."
+  },
+  "claim_boundary": "This is a deterministic rule-learning demonstration from explicit creator corrections. It is not proof of creator judgment or causal validity."
+}

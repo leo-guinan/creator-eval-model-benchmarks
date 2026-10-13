@@ -1,0 +1,30 @@
+{
+  "session_id": "corey-judge-the-judge-v7-synthetic",
+  "status": "synthetic_fixture",
+  "corrections": [
+    {"target_construct_id":"four_horsemen.fear_of_uncertainty","correction":"I need to know how reversible and costly the decision is before calling this Fear of Uncertainty."},
+    {"target_construct_id":"four_horsemen.fear_of_ridicule","correction":"Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment."}
+  ],
+  "cases": [
+    {
+      "id":"B",
+      "item_results":[{"item_id":"B1","construct_id":"four_horsemen.fear_of_uncertainty","mechanism_support":0.91,"impact":0.78,"response_capability":0.28,"evidence":"Twelve books, three courses, and five interviews have not produced a decision.","disconfirming_evidence":"The decision's reversibility and cost are not yet known.","alternative_explanations":[{"name":"genuine_information_gap","support":0.48,"evidence":"The choice may be expensive to reverse."}]}],
+      "next_discriminating_experiment":"Set an information budget only after documenting reversibility and expected cost.","retest":"14 days"
+    },
+    {
+      "id":"E",
+      "item_results":[{"item_id":"E1","construct_id":"four_horsemen.fear_of_uncertainty","mechanism_support":0.61,"impact":0.72,"response_capability":0.33,"decision_reversibility":"cheap","expected_cost_if_wrong":0.2,"next_step_clarity":"clear","evidence":"The respondent keeps requesting another market interview although the decision is cheap to reverse and the next step is clear.","disconfirming_evidence":"MISSING","alternative_explanations":[]}],
+      "next_discriminating_experiment":"Make the reversible decision within the stated information budget and record the result.","retest":"14 days"
+    },
+    {
+      "id":"A",
+      "item_results":[{"item_id":"A1","construct_id":"four_horsemen.fear_of_failure","mechanism_support":0.72,"impact":0.68,"response_capability":0.35,"evidence":"Launch delay is paired with repeated qualification doubts.","disconfirming_evidence":"No direct evidence of anticipated public judgment yet.","alternative_explanations":[{"name":"skill_gap","support":0.32,"evidence":"Qualification concerns may reflect a real capability gap."}]},{"item_id":"A2","construct_id":"four_horsemen.fear_of_ridicule","mechanism_support":0.66,"impact":0.68,"response_capability":0.35,"evidence":"The respondent worries about being judged as unqualified.","alternative_explanations":[{"name":"skill_gap","support":0.32,"evidence":"Qualification concerns may reflect a real capability gap."}]}],
+      "next_discriminating_experiment":"Ask whether anticipated judgment by another person is driving the delay.","retest":"14 days"
+    }
+  ],
+  "adjudications":[
+    {"case_id":"B","creator_primary_construct_id":null,"creator_alternatives":["genuine_information_gap"],"intervention_decision":"yes"},
+    {"case_id":"E","creator_primary_construct_id":"four_horsemen.fear_of_uncertainty","creator_alternatives":[],"intervention_decision":"yes"},
+    {"case_id":"A","creator_primary_construct_id":"four_horsemen.fear_of_failure","creator_alternatives":["skill_gap"],"intervention_decision":"directionally"}
+  ]
+}
