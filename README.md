@@ -58,6 +58,28 @@ The first V3 live pass is recorded in `data/coreywilkspsyd.com/2026-10-12/v3-202
 
 The generated artifacts included executable forced comparisons and artifact-judgment items. The main result is not that the models are now correct. It is that the benchmark can finally distinguish source-grounded framework extraction from downstream instrument construction. DeepSeek's failure is operational evidence, not a quality score.
 
+## V4: multi-axis judgment and construct fidelity
+
+V4 adds the next contract layer:
+
+- `creator_construct_id` on frameworks, dimensions, and questions;
+- creator-claimed relationships separated from `validated_relationship`;
+- explicit `score_direction`;
+- separate mechanism, evidence-confidence, impact, and response-capability axes;
+- separate question task types for identification, impact, response capability, discrimination, and re-test;
+- alternative explanations and disconfirming evidence on every question;
+- exact receipt validation that rejects aliases such as Claude V3's `name` where `text` is required.
+
+V4 also expands article-directory discovery. On Corey’s homepage it now retrieves `/the-action-gap/` instead of allowing `/articles/` to consume one of the top framework-page slots. The discovery pass is bounded to five candidate pages and records the directory expansion policy.
+
+The V4 live receipt is `data/coreywilkspsyd.com/2026-10-13/v4-2026-10-13T004228Z.json`:
+
+- Claude Haiku 5.5 generated a valid two-stage result with 8 frameworks, 11 claimed relationships, 8 dimensions, and 10 questions.
+- Its score axes are mechanism=`categorical`, evidence confidence=`confidence`, impact=`severity`, and response capability=`capability`.
+- GPT-5.6 Luna and DeepSeek V4 Flash returned no usable text within bounded requests; both failures remain in the receipt.
+
+The synthetic ambiguity fixture is `data/corey/2026-10-13/ambiguous-respondents-v1.json`. It includes Four Horsemen cases plus a legal-approval case that must remain an external-constraint candidate rather than being forced into a psychological explanation.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.

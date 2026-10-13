@@ -1,0 +1,11 @@
+{
+  "case_set": "corey-action-gap-ambiguous-v1",
+  "status": "synthetic_fixture",
+  "purpose": "Tests whether an instrument preserves competing explanations instead of forcing psychological classification.",
+  "cases": [
+    {"id": "A", "response": "I've wanted to launch for six months, but every time I think about releasing it I wonder whether I'm actually qualified.", "expected_candidates": ["four_horsemen.fear_of_failure", "four_horsemen.fear_of_ridicule"], "requires_more_evidence": true},
+    {"id": "B", "response": "I've read twelve books, taken three courses, and interviewed five people. I still don't think I have enough information to choose.", "expected_candidates": ["four_horsemen.fear_of_uncertainty"], "requires_more_evidence": true},
+    {"id": "C", "response": "The product is finally working. I'm suddenly spending all my time starting unrelated projects instead of scaling it.", "expected_candidates": ["four_horsemen.fear_of_success"], "requires_more_evidence": true},
+    {"id": "D", "response": "Legal approval is required before launch, so I'm waiting.", "expected_candidates": ["external_constraint"], "requires_more_evidence": true}
+  ]
+}

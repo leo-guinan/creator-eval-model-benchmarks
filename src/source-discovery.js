@@ -22,7 +22,7 @@ function absoluteUrl(href, baseUrl) {
 }
 
 function linkLabel(match) {
-  return strip(match[1] || match[2] || '').slice(0, 240);
+  return strip(match[1] || '').slice(0, 240) || strip(match[2] || '').slice(0, 240);
 }
 
 export function rankFrameworkLinks(html, sourceUrl, limit = 5) {
@@ -32,10 +32,11 @@ export function rankFrameworkLinks(html, sourceUrl, limit = 5) {
     const url = absoluteUrl(match[1], sourceUrl);
     if (!url || url === sourceUrl) continue;
     const label = linkLabel([match[2], match[1]]);
-    const haystack = `${url} ${label}`.toLowerCase();
+    const haystack = `${url} ${label}`.toLowerCase().replace(/[-_]+/g, ' ');
     const hits = FRAMEWORK_HINTS.filter((hint) => haystack.includes(hint));
     if (!hits.length) continue;
-    const score = hits.length * 10 + (label.length > 12 ? 2 : 0) - (url.split('/').length > 6 ? 1 : 0);
+    const isDirectory = /\/(articles|resources|blog)\/?$/i.test(new URL(url).pathname);
+    const score = hits.length * 10 + (label.length > 12 ? 2 : 0) - (url.split('/').length > 6 ? 1 : 0) - (isDirectory ? 4 : 0);
     const prior = candidates.get(url);
     if (!prior || score > prior.score) candidates.set(url, { url, label, score, signals: hits });
   }
@@ -60,7 +61,20 @@ export async function discoverFrameworkSources(sourceUrl, fetchImpl = fetch, lim
   const response = await fetchImpl(sourceUrl, { headers: { 'User-Agent': 'CreatorEvalBenchmark/0.2' } });
   if (!response.ok) throw new Error(`Source returned HTTP ${response.status}.`);
   const homepageHtml = (await response.text()).slice(0, 1_500_000);
-  const links = rankFrameworkLinks(homepageHtml, sourceUrl, limit);
+  const directLinks = rankFrameworkLinks(homepageHtml, sourceUrl, Math.max(limit * 2, 10));
+  const expanded = new Map(directLinks.map((link) => [link.url, link]));
+  for (const link of directLinks) {
+    if (!/\/articles\/?$/i.test(new URL(link.url).pathname)) continue;
+    try {
+      const directoryResponse = await fetchImpl(link.url, { headers: { 'User-Agent': 'CreatorEvalBenchmark/0.2' } });
+      if (!directoryResponse.ok) continue;
+      const directoryHtml = (await directoryResponse.text()).slice(0, 1_500_000);
+      for (const nested of rankFrameworkLinks(directoryHtml, link.url, limit * 3)) {
+        if (!expanded.has(nested.url) || nested.score > expanded.get(nested.url).score) expanded.set(nested.url, { ...nested, signals: [...new Set([...(nested.signals || []), 'directory_expansion'])] });
+      }
+    } catch { /* directory expansion is best-effort; preserve bounded direct candidates */ }
+  }
+  const links = [...expanded.values()].sort((a, b) => b.score - a.score || a.url.localeCompare(b.url)).slice(0, limit);
   const pages = [{ ...boundedSourceCapture(homepageHtml, sourceUrl), role: 'homepage', discovery_score: null }];
   for (const link of links) {
     try {
@@ -72,5 +86,5 @@ export async function discoverFrameworkSources(sourceUrl, fetchImpl = fetch, lim
       pages.push({ url: link.url, role: 'candidate_framework', fetch_status: 'error', error: error.message, discovery: link });
     }
   }
-  return { root_url: sourceUrl, selection_policy: 'same-host links ranked by framework-language signals; bounded to top 5', pages };
+  return { root_url: sourceUrl, selection_policy: 'same-host links ranked by framework-language signals, with bounded article-directory expansion; capped to top 5', pages };
 }
