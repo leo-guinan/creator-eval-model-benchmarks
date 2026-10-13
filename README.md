@@ -80,6 +80,23 @@ The V4 live receipt is `data/coreywilkspsyd.com/2026-10-13/v4-2026-10-13T004228Z
 
 The synthetic ambiguity fixture is `data/corey/2026-10-13/ambiguous-respondents-v1.json`. It includes Four Horsemen cases plus a legal-approval case that must remain an external-constraint candidate rather than being forced into a psychological explanation.
 
+## V5: deterministic scorer/compiler
+
+V5 compiles coded item results into a report rather than treating model scoring prose as the final report. Its internal shape is `construct → measures → items`, represented in the compiled report as:
+
+- candidate mechanisms with support, evidence, and contradictions;
+- confidence with ambiguity and margin handling;
+- impact and response capability as separate numeric axes;
+- surviving alternative explanations;
+- disconfirming evidence;
+- one next discriminating experiment;
+- a re-test interval;
+- an explicit claim boundary.
+
+The synthetic scorer inputs are in `data/corey/2026-10-13/judgment-cases-v1.json`; compiled reports are in `judgment-reports-v1.json`; the compiler is `src/v5-scorer.js`. The four cases produce the intended boundary behavior: A remains ambiguous between Failure and Ridicule, B selects Uncertainty while preserving a genuine-information-gap alternative, C selects Success with separate impact and response-capability values, and D selects `external_constraint` without forcing a psychological mechanism.
+
+V5 is deterministic compilation over coded evidence. It is not yet a claim about Corey’s judgment distance. That requires the same cases to be independently adjudicated by Corey and compared against these reports.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.
