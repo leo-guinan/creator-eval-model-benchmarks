@@ -6,6 +6,7 @@ The judgment model and protocol are versioned separately from the presentation:
 
 - `eval/index.json` records the judgment-model, protocol, and experience versions.
 - `eval/protocol.js` is the protected protocol adapter.
+- `eval/engine.js` is the portable deterministic engine used by the adapter; the starter workspace no longer imports the repository's `src/` tree.
 - `eval/golden-cases.json` is a synthetic regression fixture. It is not Corey adjudication or respondent data.
 - `app/` is the presentation surface Corey can reshape.
 

@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateConstitution, validateProtocolResult } from '../src/eval-architecture.js';
+import { compileJudgment as compileCanonicalJudgment } from '../src/v5-scorer.js';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
 const args = process.argv.slice(2);
@@ -18,7 +19,7 @@ function fail(message) {
   process.exitCode = 1;
 }
 
-const required = ['eval/index.json', 'eval/protocol.js', 'eval/golden-cases.json', 'app/index.html', 'app/app.js'];
+const required = ['eval/index.json', 'eval/protocol.js', 'eval/engine.js', 'eval/golden-cases.json', 'app/index.html', 'app/app.js'];
 const missing = required.filter((file) => !existsSync(resolve(experienceDir, file)));
 if (missing.length) {
   fail(`missing required experience file(s): ${missing.join(', ')}`);
@@ -40,8 +41,18 @@ if (missing.length) {
   }
 
   const protocolErrors = reports.flatMap((report) => validateProtocolResult(report).map((error) => `${report.case_id}:${error}`));
+  const engineErrors = reports.flatMap((report) => {
+    const source = cases.cases.find((item) => item.id === report.case_id);
+    const canonical = compileCanonicalJudgment({
+      case_id: source.id,
+      item_results: source.item_results,
+      next_discriminating_experiment: source.next_discriminating_experiment,
+      retest: source.retest,
+    });
+    return JSON.stringify(report) === JSON.stringify(canonical) ? [] : [report.case_id];
+  });
   const constitutionalErrors = validateConstitution(reports, constitution);
-  const status = protocolErrors.length || constitutionalErrors.length ? 'failed' : 'passed';
+  const status = protocolErrors.length || engineErrors.length || constitutionalErrors.length ? 'failed' : 'passed';
   const receipt = {
     receipt_version: 'experience-validation-receipt.v1',
     status,
@@ -49,7 +60,7 @@ if (missing.length) {
     experience_version: manifest.experience_version,
     judgment_model_version: manifest.judgment_model_version,
     protocol_version: manifest.protocol_version,
-    golden_cases: { case_count: reports.length, protocol_errors: protocolErrors },
+    golden_cases: { case_count: reports.length, protocol_errors: protocolErrors, engine_regression_errors: engineErrors },
     constitutional_regression: { status: constitutionalErrors.length ? 'failed' : 'passed', errors: constitutionalErrors },
     artifact_versions: {
       judgment_model: manifest.judgment_model_version,

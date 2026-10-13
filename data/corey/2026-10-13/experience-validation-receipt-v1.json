@@ -7,7 +7,8 @@
   "protocol_version": "eval-protocol.v1",
   "golden_cases": {
     "case_count": 4,
-    "protocol_errors": []
+    "protocol_errors": [],
+    "engine_regression_errors": []
   },
   "constitutional_regression": {
     "status": "passed",

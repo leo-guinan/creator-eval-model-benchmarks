@@ -140,7 +140,7 @@ The Corey constitution is captured in `data/corey/2026-10-13/eval-constitution-v
 
 The next implementation slice is a starter experience package: a versioned protocol adapter, protected `/eval` export, `/app` presentation surface, golden-case runner, and a publish receipt that records judgment-model and experience versions separately.
 
-The starter workspace is now in `experience/`. Run `npm run validate:experience -- --experience-dir experience` to execute the four golden cases through the workspace protocol and emit `experience-validation-receipt-v1.json`. A creator-facing revision can change the presentation surface and rerun the same command; missing surfaces or protocol regressions fail closed. This is a local handoff fixture, not a deployed product or Corey validation.
+The starter workspace is now in `experience/`. Run `npm run validate:experience -- --experience-dir experience` to execute the four golden cases through the workspace protocol and emit `experience-validation-receipt-v1.json`. A creator-facing revision can change the presentation surface and rerun the same command; missing surfaces or protocol regressions fail closed. The workspace carries a portable deterministic engine and the validator compares its outputs with the protected canonical engine, so semantic drift is visible rather than silently accepted. This is a local handoff fixture, not a deployed product or Corey validation.
 
 ## Boundaries
 

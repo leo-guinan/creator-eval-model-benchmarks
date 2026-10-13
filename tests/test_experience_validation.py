@@ -25,7 +25,22 @@ def test_validate_my_version_emits_separate_experience_receipt():
     assert receipt['judgment_model_version'] == 'corey-action-gap.v1'
     assert receipt['protocol_version'] == 'eval-protocol.v1'
     assert receipt['golden_cases']['case_count'] == 4
+    assert receipt['golden_cases']['engine_regression_errors'] == []
     assert receipt['constitutional_regression']['status'] == 'passed'
+
+
+def test_copied_workspace_validates_without_repository_src_dependency(tmp_path):
+    workspace = tmp_path / 'copied-experience'
+    shutil.copytree(ROOT / 'experience', workspace)
+    completed = subprocess.run(
+        ['node', 'scripts/validate_experience.mjs', '--experience-dir', str(workspace), '--output', str(tmp_path / 'copied-receipt.json')],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    assert '"status": "passed"' in completed.stdout
+    assert '../../src/' not in (workspace / 'eval' / 'protocol.js').read_text()
 
 
 def test_validate_my_version_fails_when_presentation_surface_is_missing(tmp_path):

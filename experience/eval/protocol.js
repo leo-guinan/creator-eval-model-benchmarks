@@ -1,4 +1,4 @@
-import { compileJudgment } from '../../src/v5-scorer.js';
+import { compileJudgment } from './engine.js';
 
 export const PROTOCOL_VERSION = 'eval-protocol.v1';
 export const JUDGMENT_MODEL_VERSION = 'corey-action-gap.v1';
