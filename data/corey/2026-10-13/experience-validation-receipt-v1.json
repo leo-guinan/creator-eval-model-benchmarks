@@ -1,0 +1,25 @@
+{
+  "receipt_version": "experience-validation-receipt.v1",
+  "status": "passed",
+  "experience_dir": "experience",
+  "experience_version": "corey-starter.v1",
+  "judgment_model_version": "corey-action-gap.v1",
+  "protocol_version": "eval-protocol.v1",
+  "golden_cases": {
+    "case_count": 4,
+    "protocol_errors": []
+  },
+  "constitutional_regression": {
+    "status": "passed",
+    "errors": []
+  },
+  "artifact_versions": {
+    "judgment_model": "corey-action-gap.v1",
+    "protocol": "eval-protocol.v1",
+    "experience": "corey-starter.v1"
+  },
+  "provenance": {
+    "fixture_status": "synthetic_fixture",
+    "claim_boundary": "This validates a local experience against synthetic golden cases. It does not validate creator judgment or respondent outcomes."
+  }
+}
