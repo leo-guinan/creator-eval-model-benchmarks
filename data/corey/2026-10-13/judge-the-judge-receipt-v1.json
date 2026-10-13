@@ -1,0 +1,837 @@
+{
+  "session_id": "corey-judge-the-judge-v1-synthetic",
+  "status": "synthetic_fixture_compiled",
+  "packet": {
+    "title": "Judge the Judge",
+    "introduction": "We built a first draft of your judgment from your public work. It will be wrong in places. Teach us how you see it.",
+    "sections": {
+      "distinctions": [
+        {
+          "creator_construct_id": "four_horsemen.fear_of_failure",
+          "name": "Fear of Failure",
+          "summary": "Concern that the person cannot succeed at the thing itself.",
+          "controls": [
+            "exactly_right",
+            "mostly_right",
+            "wrong",
+            "missing_something"
+          ],
+          "correction_prompt": "If this is not exactly right, what distinction would you make instead?"
+        },
+        {
+          "creator_construct_id": "four_horsemen.fear_of_ridicule",
+          "name": "Fear of Ridicule",
+          "summary": "Concern about how other people will evaluate the person or their work.",
+          "controls": [
+            "exactly_right",
+            "mostly_right",
+            "wrong",
+            "missing_something"
+          ],
+          "correction_prompt": "If this is not exactly right, what distinction would you make instead?"
+        },
+        {
+          "creator_construct_id": "four_horsemen.fear_of_uncertainty",
+          "name": "Fear of Uncertainty",
+          "summary": "Continuing to acquire information after enough exists for a reasonable move.",
+          "controls": [
+            "exactly_right",
+            "mostly_right",
+            "wrong",
+            "missing_something"
+          ],
+          "correction_prompt": "If this is not exactly right, what distinction would you make instead?"
+        },
+        {
+          "creator_construct_id": "four_horsemen.fear_of_success",
+          "name": "Fear of Success",
+          "summary": "Approaching success creates concern about the identity, responsibilities, or consequences that follow.",
+          "controls": [
+            "exactly_right",
+            "mostly_right",
+            "wrong",
+            "missing_something"
+          ],
+          "correction_prompt": "If this is not exactly right, what distinction would you make instead?"
+        }
+      ],
+      "judgments": [
+        {
+          "case_id": "A",
+          "current_read": {
+            "classification": "withheld",
+            "candidates": [
+              {
+                "construct_id": "four_horsemen.fear_of_failure",
+                "support": 0.72,
+                "evidence": [
+                  "Launch delay is paired with repeated qualification doubts."
+                ],
+                "contradictions": [
+                  "No direct evidence of anticipated public judgment yet."
+                ]
+              },
+              {
+                "construct_id": "four_horsemen.fear_of_ridicule",
+                "support": 0.66,
+                "evidence": [
+                  "The respondent worries about being judged as unqualified."
+                ],
+                "contradictions": []
+              }
+            ]
+          },
+          "alternatives": [
+            "skill_gap"
+          ],
+          "next_question": "Release a low-stakes version to a defined audience and record whether anticipated judgment or evidence of capability is the limiting factor.",
+          "controls": [
+            "same_call",
+            "choose_failure",
+            "choose_ridicule",
+            "choose_something_else",
+            "need_different_evidence"
+          ],
+          "correction_prompt": "What are you noticing that we are missing?"
+        },
+        {
+          "case_id": "B",
+          "current_read": {
+            "construct_id": "four_horsemen.fear_of_uncertainty",
+            "support": 0.91,
+            "confidence": "high"
+          },
+          "alternatives": [
+            "genuine_information_gap"
+          ],
+          "next_question": "Set an explicit information budget and make one reversible decision when it is reached.",
+          "controls": [
+            "same_call",
+            "choose_failure",
+            "choose_ridicule",
+            "choose_something_else",
+            "need_different_evidence"
+          ],
+          "correction_prompt": "What are you noticing that we are missing?"
+        },
+        {
+          "case_id": "C",
+          "current_read": {
+            "construct_id": "four_horsemen.fear_of_success",
+            "support": 0.84,
+            "confidence": "high"
+          },
+          "alternatives": [],
+          "next_question": "Continue scaling for one bounded week while logging the trigger for every switch to a new project.",
+          "controls": [
+            "same_call",
+            "choose_failure",
+            "choose_ridicule",
+            "choose_something_else",
+            "need_different_evidence"
+          ],
+          "correction_prompt": "What are you noticing that we are missing?"
+        },
+        {
+          "case_id": "D",
+          "current_read": {
+            "construct_id": "external_constraint",
+            "support": 0.93,
+            "confidence": "high"
+          },
+          "alternatives": [],
+          "next_question": "Verify the approval dependency and identify actions that remain available while approval is pending.",
+          "controls": [
+            "same_call",
+            "choose_failure",
+            "choose_ridicule",
+            "choose_something_else",
+            "need_different_evidence"
+          ],
+          "correction_prompt": "What are you noticing that we are missing?"
+        }
+      ],
+      "recommendations": [
+        {
+          "case_id": "A",
+          "proposed_experiment": "Release a low-stakes version to a defined audience and record whether anticipated judgment or evidence of capability is the limiting factor.",
+          "controls": [
+            "yes",
+            "directionally",
+            "no"
+          ],
+          "correction_prompt": "If not, what would you have this person do instead?"
+        },
+        {
+          "case_id": "B",
+          "proposed_experiment": "Set an explicit information budget and make one reversible decision when it is reached.",
+          "controls": [
+            "yes",
+            "directionally",
+            "no"
+          ],
+          "correction_prompt": "If not, what would you have this person do instead?"
+        },
+        {
+          "case_id": "C",
+          "proposed_experiment": "Continue scaling for one bounded week while logging the trigger for every switch to a new project.",
+          "controls": [
+            "yes",
+            "directionally",
+            "no"
+          ],
+          "correction_prompt": "If not, what would you have this person do instead?"
+        },
+        {
+          "case_id": "D",
+          "proposed_experiment": "Verify the approval dependency and identify actions that remain available while approval is pending.",
+          "controls": [
+            "yes",
+            "directionally",
+            "no"
+          ],
+          "correction_prompt": "If not, what would you have this person do instead?"
+        }
+      ]
+    },
+    "counterexample_prompt": "Give us one example of a person your framework is commonly applied to incorrectly."
+  },
+  "distance_before_update": {
+    "rows": [
+      {
+        "case_id": "A",
+        "mechanism_agreement": 0,
+        "evidence_agreement": 1,
+        "boundary_agreement": null,
+        "judgment_distance": 1
+      },
+      {
+        "case_id": "B",
+        "mechanism_agreement": 0,
+        "evidence_agreement": 1,
+        "boundary_agreement": null,
+        "judgment_distance": 1
+      },
+      {
+        "case_id": "C",
+        "mechanism_agreement": 1,
+        "evidence_agreement": 0,
+        "boundary_agreement": null,
+        "judgment_distance": 0
+      },
+      {
+        "case_id": "D",
+        "mechanism_agreement": 1,
+        "evidence_agreement": 1,
+        "boundary_agreement": 1,
+        "judgment_distance": 0
+      }
+    ],
+    "aggregate_judgment_distance": 0.33333333333333337,
+    "claim_boundary": "Judgment Distance is a calibration comparison, not Corey Accuracy or proof of framework validity."
+  },
+  "propagation": {
+    "before": {
+      "reports": [
+        {
+          "case_id": "A",
+          "primary_candidate": null,
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_failure",
+              "support": 0.72,
+              "evidence": [
+                "Launch delay is paired with repeated qualification doubts."
+              ],
+              "contradictions": [
+                "No direct evidence of anticipated public judgment yet."
+              ]
+            },
+            {
+              "construct_id": "four_horsemen.fear_of_ridicule",
+              "support": 0.66,
+              "evidence": [
+                "The respondent worries about being judged as unqualified."
+              ],
+              "contradictions": []
+            }
+          ],
+          "confidence": "low",
+          "impact": 0.68,
+          "response_capability": 0.35,
+          "alternatives": [
+            {
+              "name": "skill_gap",
+              "supports": [
+                0.32,
+                0.32
+              ],
+              "evidence": [
+                "Qualification concerns may reflect a real capability gap.",
+                "Qualification concerns may reflect a real capability gap."
+              ],
+              "support": 0.32
+            }
+          ],
+          "alternative_explanations_survived": [
+            "skill_gap"
+          ],
+          "classification_withheld": true,
+          "supporting_evidence": [
+            {
+              "item_id": "A1",
+              "text": "Launch delay is paired with repeated qualification doubts.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            },
+            {
+              "item_id": "A2",
+              "text": "The respondent worries about being judged as unqualified.",
+              "construct_id": "four_horsemen.fear_of_ridicule"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "A1",
+              "text": "No direct evidence of anticipated public judgment yet.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "next_discriminating_experiment": "Release a low-stakes version to a defined audience and record whether anticipated judgment or evidence of capability is the limiting factor.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "B",
+          "primary_candidate": {
+            "construct_id": "four_horsemen.fear_of_uncertainty",
+            "support": 0.91,
+            "confidence": "high"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_uncertainty",
+              "support": 0.91,
+              "evidence": [
+                "Twelve books, three courses, and five interviews have not produced a decision."
+              ],
+              "contradictions": [
+                "The decision's reversibility and cost are not yet known."
+              ]
+            }
+          ],
+          "confidence": "high",
+          "impact": 0.78,
+          "response_capability": 0.28,
+          "alternatives": [
+            {
+              "name": "genuine_information_gap",
+              "supports": [
+                0.48
+              ],
+              "evidence": [
+                "The choice may be expensive to reverse."
+              ],
+              "support": 0.48
+            }
+          ],
+          "alternative_explanations_survived": [
+            "genuine_information_gap"
+          ],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "B1",
+              "text": "Twelve books, three courses, and five interviews have not produced a decision.",
+              "construct_id": "four_horsemen.fear_of_uncertainty"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "B1",
+              "text": "The decision's reversibility and cost are not yet known.",
+              "construct_id": "four_horsemen.fear_of_uncertainty"
+            }
+          ],
+          "next_discriminating_experiment": "Set an explicit information budget and make one reversible decision when it is reached.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "C",
+          "primary_candidate": {
+            "construct_id": "four_horsemen.fear_of_success",
+            "support": 0.84,
+            "confidence": "high"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_success",
+              "support": 0.84,
+              "evidence": [
+                "A working product is followed by unrelated projects replacing scaling work."
+              ],
+              "contradictions": [
+                "The reason for changing projects is not yet directly stated."
+              ]
+            }
+          ],
+          "confidence": "high",
+          "impact": 0.74,
+          "response_capability": 0.31,
+          "alternatives": [
+            {
+              "name": "resource_constraint",
+              "supports": [
+                0.22
+              ],
+              "evidence": [
+                "Scaling may require resources not currently available."
+              ],
+              "support": 0.22
+            }
+          ],
+          "alternative_explanations_survived": [],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "C1",
+              "text": "A working product is followed by unrelated projects replacing scaling work.",
+              "construct_id": "four_horsemen.fear_of_success"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "C1",
+              "text": "The reason for changing projects is not yet directly stated.",
+              "construct_id": "four_horsemen.fear_of_success"
+            }
+          ],
+          "next_discriminating_experiment": "Continue scaling for one bounded week while logging the trigger for every switch to a new project.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "D",
+          "primary_candidate": {
+            "construct_id": "external_constraint",
+            "support": 0.93,
+            "confidence": "high"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "external_constraint",
+              "support": 0.93,
+              "evidence": [
+                "Legal approval is explicitly required before launch."
+              ],
+              "contradictions": [
+                "No psychological mechanism is evidenced by this response."
+              ]
+            },
+            {
+              "construct_id": "four_horsemen.fear_of_failure",
+              "support": 0.12,
+              "evidence": [
+                "MISSING"
+              ],
+              "contradictions": [
+                "The stated blocker is legal approval, not fear."
+              ]
+            }
+          ],
+          "confidence": "high",
+          "impact": 0.76,
+          "response_capability": null,
+          "alternatives": [],
+          "alternative_explanations_survived": [],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "D1",
+              "text": "Legal approval is explicitly required before launch.",
+              "construct_id": "external_constraint"
+            },
+            {
+              "item_id": "D2",
+              "text": "MISSING",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "D1",
+              "text": "No psychological mechanism is evidenced by this response.",
+              "construct_id": "external_constraint"
+            },
+            {
+              "item_id": "D2",
+              "text": "The stated blocker is legal approval, not fear.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "next_discriminating_experiment": "Verify the approval dependency and identify actions that remain available while approval is pending.",
+          "retest": "After approval decision",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        }
+      ]
+    },
+    "calibration": {
+      "adjudications": [
+        {
+          "case_id": "A",
+          "creator_primary_construct_id": "four_horsemen.fear_of_failure",
+          "creator_alternatives": [
+            "skill_gap"
+          ],
+          "boundary_classification": null,
+          "same_call": false,
+          "correction": "Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment."
+        },
+        {
+          "case_id": "B",
+          "creator_primary_construct_id": null,
+          "creator_alternatives": [
+            "genuine_information_gap"
+          ],
+          "boundary_classification": null,
+          "same_call": false,
+          "correction": "I need to know how reversible and costly the decision is before calling this Uncertainty."
+        },
+        {
+          "case_id": "C",
+          "creator_primary_construct_id": "four_horsemen.fear_of_success",
+          "creator_alternatives": [
+            "resource_constraint"
+          ],
+          "boundary_classification": null,
+          "same_call": true,
+          "correction": "The project-switch pattern is a useful suspicion, not a confident call without the trigger."
+        },
+        {
+          "case_id": "D",
+          "creator_primary_construct_id": "external_constraint",
+          "creator_alternatives": [],
+          "boundary_classification": "external_constraint",
+          "same_call": true,
+          "correction": "Leave this outside the psychological framework on the evidence given."
+        }
+      ]
+    },
+    "changes": [
+      {
+        "rule_id": "ridicule.requires_social_evaluation",
+        "before": "Qualification concern can support Failure or Ridicule.",
+        "correction": "Qualification concern alone supports Failure or skill gap; Ridicule requires evidence of anticipated social evaluation.",
+        "affected_construct_ids": [
+          "four_horsemen.fear_of_ridicule",
+          "four_horsemen.fear_of_failure"
+        ],
+        "affected_case_ids": [
+          "A"
+        ],
+        "changed_questions": 3,
+        "changed_scoring_rules": 2,
+        "changed_report_interpretations": 1
+      },
+      {
+        "rule_id": "uncertainty.requires_decision_context",
+        "before": "Repeated information seeking can support Fear of Uncertainty.",
+        "correction": "Require decision reversibility and expected cost before raising confidence in Fear of Uncertainty.",
+        "affected_construct_ids": [
+          "four_horsemen.fear_of_uncertainty"
+        ],
+        "affected_case_ids": [
+          "B"
+        ],
+        "changed_questions": 2,
+        "changed_scoring_rules": 1,
+        "changed_report_interpretations": 1
+      }
+    ],
+    "after": {
+      "reports": [
+        {
+          "case_id": "A",
+          "primary_candidate": {
+            "construct_id": "four_horsemen.fear_of_failure",
+            "support": 0.72,
+            "confidence": "moderate"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_failure",
+              "support": 0.72,
+              "evidence": [
+                "Launch delay is paired with repeated qualification doubts."
+              ],
+              "contradictions": [
+                "No direct evidence of anticipated public judgment yet."
+              ]
+            },
+            {
+              "construct_id": "four_horsemen.fear_of_ridicule",
+              "support": 0.66,
+              "evidence": [
+                "The respondent worries about being judged as unqualified."
+              ],
+              "contradictions": []
+            }
+          ],
+          "confidence": "low",
+          "impact": 0.68,
+          "response_capability": 0.35,
+          "alternatives": [
+            {
+              "name": "skill_gap",
+              "supports": [
+                0.32,
+                0.32
+              ],
+              "evidence": [
+                "Qualification concerns may reflect a real capability gap.",
+                "Qualification concerns may reflect a real capability gap."
+              ],
+              "support": 0.32
+            }
+          ],
+          "alternative_explanations_survived": [
+            "skill_gap"
+          ],
+          "classification_withheld": true,
+          "supporting_evidence": [
+            {
+              "item_id": "A1",
+              "text": "Launch delay is paired with repeated qualification doubts.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            },
+            {
+              "item_id": "A2",
+              "text": "The respondent worries about being judged as unqualified.",
+              "construct_id": "four_horsemen.fear_of_ridicule"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "A1",
+              "text": "No direct evidence of anticipated public judgment yet.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "next_discriminating_experiment": "Release a low-stakes version to a defined audience and record whether anticipated judgment or evidence of capability is the limiting factor.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "B",
+          "primary_candidate": null,
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_uncertainty",
+              "support": 0.91,
+              "evidence": [
+                "Twelve books, three courses, and five interviews have not produced a decision."
+              ],
+              "contradictions": [
+                "The decision's reversibility and cost are not yet known."
+              ]
+            }
+          ],
+          "confidence": "low",
+          "impact": 0.78,
+          "response_capability": 0.28,
+          "alternatives": [
+            {
+              "name": "genuine_information_gap",
+              "supports": [
+                0.48
+              ],
+              "evidence": [
+                "The choice may be expensive to reverse."
+              ],
+              "support": 0.48
+            }
+          ],
+          "alternative_explanations_survived": [
+            "genuine_information_gap"
+          ],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "B1",
+              "text": "Twelve books, three courses, and five interviews have not produced a decision.",
+              "construct_id": "four_horsemen.fear_of_uncertainty"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "B1",
+              "text": "The decision's reversibility and cost are not yet known.",
+              "construct_id": "four_horsemen.fear_of_uncertainty"
+            }
+          ],
+          "next_discriminating_experiment": "Set an explicit information budget and make one reversible decision when it is reached.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "C",
+          "primary_candidate": {
+            "construct_id": "four_horsemen.fear_of_success",
+            "support": 0.84,
+            "confidence": "high"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "four_horsemen.fear_of_success",
+              "support": 0.84,
+              "evidence": [
+                "A working product is followed by unrelated projects replacing scaling work."
+              ],
+              "contradictions": [
+                "The reason for changing projects is not yet directly stated."
+              ]
+            }
+          ],
+          "confidence": "high",
+          "impact": 0.74,
+          "response_capability": 0.31,
+          "alternatives": [
+            {
+              "name": "resource_constraint",
+              "supports": [
+                0.22
+              ],
+              "evidence": [
+                "Scaling may require resources not currently available."
+              ],
+              "support": 0.22
+            }
+          ],
+          "alternative_explanations_survived": [],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "C1",
+              "text": "A working product is followed by unrelated projects replacing scaling work.",
+              "construct_id": "four_horsemen.fear_of_success"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "C1",
+              "text": "The reason for changing projects is not yet directly stated.",
+              "construct_id": "four_horsemen.fear_of_success"
+            }
+          ],
+          "next_discriminating_experiment": "Continue scaling for one bounded week while logging the trigger for every switch to a new project.",
+          "retest": "14 days",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        },
+        {
+          "case_id": "D",
+          "primary_candidate": {
+            "construct_id": "external_constraint",
+            "support": 0.93,
+            "confidence": "high"
+          },
+          "candidate_mechanisms": [
+            {
+              "construct_id": "external_constraint",
+              "support": 0.93,
+              "evidence": [
+                "Legal approval is explicitly required before launch."
+              ],
+              "contradictions": [
+                "No psychological mechanism is evidenced by this response."
+              ]
+            },
+            {
+              "construct_id": "four_horsemen.fear_of_failure",
+              "support": 0.12,
+              "evidence": [
+                "MISSING"
+              ],
+              "contradictions": [
+                "The stated blocker is legal approval, not fear."
+              ]
+            }
+          ],
+          "confidence": "high",
+          "impact": 0.76,
+          "response_capability": null,
+          "alternatives": [],
+          "alternative_explanations_survived": [],
+          "classification_withheld": false,
+          "supporting_evidence": [
+            {
+              "item_id": "D1",
+              "text": "Legal approval is explicitly required before launch.",
+              "construct_id": "external_constraint"
+            },
+            {
+              "item_id": "D2",
+              "text": "MISSING",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "disconfirming_evidence": [
+            {
+              "item_id": "D1",
+              "text": "No psychological mechanism is evidenced by this response.",
+              "construct_id": "external_constraint"
+            },
+            {
+              "item_id": "D2",
+              "text": "The stated blocker is legal approval, not fear.",
+              "construct_id": "four_horsemen.fear_of_failure"
+            }
+          ],
+          "next_discriminating_experiment": "Verify the approval dependency and identify actions that remain available while approval is pending.",
+          "retest": "After approval decision",
+          "claim_boundary": "This is a deterministic compilation of coded response evidence. It is not a diagnosis, validated causal attribution, or proof that the creator's framework is correct."
+        }
+      ]
+    },
+    "distance_before_update": {
+      "rows": [
+        {
+          "case_id": "A",
+          "mechanism_agreement": 0,
+          "evidence_agreement": 1,
+          "boundary_agreement": null,
+          "judgment_distance": 1
+        },
+        {
+          "case_id": "B",
+          "mechanism_agreement": 0,
+          "evidence_agreement": 1,
+          "boundary_agreement": null,
+          "judgment_distance": 1
+        },
+        {
+          "case_id": "C",
+          "mechanism_agreement": 1,
+          "evidence_agreement": 0,
+          "boundary_agreement": null,
+          "judgment_distance": 0
+        },
+        {
+          "case_id": "D",
+          "mechanism_agreement": 1,
+          "evidence_agreement": 1,
+          "boundary_agreement": 1,
+          "judgment_distance": 0
+        }
+      ],
+      "aggregate_judgment_distance": 0.33333333333333337,
+      "claim_boundary": "Judgment Distance is a calibration comparison, not Corey Accuracy or proof of framework validity."
+    }
+  },
+  "fresh_case": {
+    "id": "E",
+    "response": "I keep asking for one more market interview even though the decision is cheap to reverse and the next step is clear.",
+    "expected_calibration_target": "four_horsemen.fear_of_uncertainty"
+  },
+  "counterexample_prompt": "Give us one example of a person your framework is commonly applied to incorrectly.",
+  "claim_boundary": "This is a synthetic calibration protocol and propagation preview. It is not Corey's actual judgment or evidence of model learning."
+}

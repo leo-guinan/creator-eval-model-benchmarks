@@ -46,7 +46,7 @@
       "alternative_explanations_survived": [
         "skill_gap"
       ],
-      "forced_classification": true,
+      "classification_withheld": true,
       "supporting_evidence": [
         {
           "item_id": "A1",
@@ -107,7 +107,7 @@
       "alternative_explanations_survived": [
         "genuine_information_gap"
       ],
-      "forced_classification": false,
+      "classification_withheld": false,
       "supporting_evidence": [
         {
           "item_id": "B1",
@@ -161,7 +161,7 @@
         }
       ],
       "alternative_explanations_survived": [],
-      "forced_classification": false,
+      "classification_withheld": false,
       "supporting_evidence": [
         {
           "item_id": "C1",
@@ -214,7 +214,7 @@
       "response_capability": null,
       "alternatives": [],
       "alternative_explanations_survived": [],
-      "forced_classification": false,
+      "classification_withheld": false,
       "supporting_evidence": [
         {
           "item_id": "D1",

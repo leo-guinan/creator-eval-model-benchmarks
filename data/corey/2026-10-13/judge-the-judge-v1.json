@@ -1,0 +1,33 @@
+{
+  "session_id": "corey-judge-the-judge-v1-synthetic",
+  "status": "synthetic_fixture",
+  "creator": "Corey Wilks",
+  "framework_cards": [
+    {"creator_construct_id":"four_horsemen.fear_of_failure","name":"Fear of Failure","summary":"Concern that the person cannot succeed at the thing itself."},
+    {"creator_construct_id":"four_horsemen.fear_of_ridicule","name":"Fear of Ridicule","summary":"Concern about how other people will evaluate the person or their work."},
+    {"creator_construct_id":"four_horsemen.fear_of_uncertainty","name":"Fear of Uncertainty","summary":"Continuing to acquire information after enough exists for a reasonable move."},
+    {"creator_construct_id":"four_horsemen.fear_of_success","name":"Fear of Success","summary":"Approaching success creates concern about the identity, responsibilities, or consequences that follow."}
+  ],
+  "adjudications": [
+    {"case_id":"A","creator_primary_construct_id":"four_horsemen.fear_of_failure","creator_alternatives":["skill_gap"],"boundary_classification":null,"same_call":false,"correction":"Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment."},
+    {"case_id":"B","creator_primary_construct_id":null,"creator_alternatives":["genuine_information_gap"],"boundary_classification":null,"same_call":false,"correction":"I need to know how reversible and costly the decision is before calling this Uncertainty."},
+    {"case_id":"C","creator_primary_construct_id":"four_horsemen.fear_of_success","creator_alternatives":["resource_constraint"],"boundary_classification":null,"same_call":true,"correction":"The project-switch pattern is a useful suspicion, not a confident call without the trigger."},
+    {"case_id":"D","creator_primary_construct_id":"external_constraint","creator_alternatives":[],"boundary_classification":"external_constraint","same_call":true,"correction":"Leave this outside the psychological framework on the evidence given."}
+  ],
+  "recommendations": [
+    {"case_id":"A","decision":"directionally","correction":"Separate qualification doubt from anticipated audience judgment in the next item."},
+    {"case_id":"B","decision":"yes","correction":"Add reversibility and cost to the information-budget experiment."},
+    {"case_id":"C","decision":"directionally","correction":"Add a trigger log before recommending a Fear of Success interpretation."},
+    {"case_id":"D","decision":"yes","correction":"Verify the legal dependency and act on the remaining available work."}
+  ],
+  "rule_updates": [
+    {"rule_id":"ridicule.requires_social_evaluation","before":"Qualification concern can support Failure or Ridicule.","correction":"Qualification concern alone supports Failure or skill gap; Ridicule requires evidence of anticipated social evaluation.","affected_construct_ids":["four_horsemen.fear_of_ridicule","four_horsemen.fear_of_failure"],"affected_case_ids":["A"],"changed_questions":3,"changed_scoring_rules":2,"changed_report_interpretations":1},
+    {"rule_id":"uncertainty.requires_decision_context","before":"Repeated information seeking can support Fear of Uncertainty.","correction":"Require decision reversibility and expected cost before raising confidence in Fear of Uncertainty.","affected_construct_ids":["four_horsemen.fear_of_uncertainty"],"affected_case_ids":["B"],"changed_questions":2,"changed_scoring_rules":1,"changed_report_interpretations":1}
+  ],
+  "after_overrides": {
+    "A": {"primary_candidate": {"construct_id":"four_horsemen.fear_of_failure","support":0.72,"confidence":"moderate"},"alternative_explanations_survived":["skill_gap"]},
+    "B": {"primary_candidate": null,"confidence":"low","alternative_explanations_survived":["genuine_information_gap"]}
+  },
+  "fresh_case": {"id":"E","response":"I keep asking for one more market interview even though the decision is cheap to reverse and the next step is clear.","expected_calibration_target":"four_horsemen.fear_of_uncertainty"},
+  "counterexample_prompt":"Give us one example of a person your framework is commonly applied to incorrectly."
+}

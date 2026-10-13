@@ -97,6 +97,20 @@ The synthetic scorer inputs are in `data/corey/2026-10-13/judgment-cases-v1.json
 
 V5 is deterministic compilation over coded evidence. It is not yet a claim about Corey’s judgment distance. That requires the same cases to be independently adjudicated by Corey and compared against these reports.
 
+## V6: Judge the Judge
+
+V6 turns creator calibration into a reviewable interaction rather than a schema inspection. The packet has three surfaces:
+
+1. distinction cards: `exactly right`, `mostly right`, `wrong`, or `missing something`;
+2. judgment cases: same call, choose a different mechanism, choose something else, or need different evidence;
+3. recommendation checks: yes, directionally, or no, followed by the correction.
+
+It also records one counterexample prompt and one fresh unseen case. Corrections propagate as explicit rule updates with affected constructs, affected cases, changed questions, changed scoring rules, and changed report interpretations.
+
+The V6 compiler is `src/v6-judge-the-judge.js`. The synthetic packet is `data/corey/2026-10-13/judge-the-judge-v1.json`; the compiled receipt is `judge-the-judge-receipt-v1.json`. Its calibration distance is explicitly labeled `Judgment Distance`, not Corey Accuracy. The current synthetic aggregate is `0.3333`; it is a protocol demonstration, not a real creator measurement.
+
+The V5 `forced_classification` field is now named `classification_withheld`: a strong candidate can exist while the compiler correctly declines to choose it.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.

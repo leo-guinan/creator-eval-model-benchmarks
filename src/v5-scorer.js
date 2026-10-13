@@ -50,7 +50,7 @@ export function compileJudgment({ case_id, item_results = [], next_discriminatin
     response_capability: responseCapability,
     alternatives: alternativeRows,
     alternative_explanations_survived: alternativeRows.filter((row) => row.support >= 0.3).map((row) => row.name),
-    forced_classification: Boolean(primary && primary.support >= 0.6 && ambiguous),
+    classification_withheld: Boolean(primary && primary.support >= 0.6 && ambiguous),
     supporting_evidence: supportingEvidence,
     disconfirming_evidence: disconfirmingEvidence,
     next_discriminating_experiment,

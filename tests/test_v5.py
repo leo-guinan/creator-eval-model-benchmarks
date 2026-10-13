@@ -17,7 +17,7 @@ def test_v5_compiler_reports_are_multi_axis():
 def test_v5_preserves_ambiguity_and_alternatives():
     reports = {report['case_id']: report for report in load_reports()}
     assert reports['A']['primary_candidate'] is None
-    assert reports['A']['forced_classification'] is True
+    assert reports['A']['classification_withheld'] is True
     assert 'skill_gap' in reports['A']['alternative_explanations_survived']
     assert reports['B']['primary_candidate']['construct_id'] == 'four_horsemen.fear_of_uncertainty'
     assert 'genuine_information_gap' in reports['B']['alternative_explanations_survived']
@@ -26,7 +26,7 @@ def test_v5_preserves_ambiguity_and_alternatives():
 def test_v5_does_not_force_external_constraint_into_psychological_mechanism():
     report = next(report for report in load_reports() if report['case_id'] == 'D')
     assert report['primary_candidate']['construct_id'] == 'external_constraint'
-    assert report['forced_classification'] is False
+    assert report['classification_withheld'] is False
     assert all(row['construct_id'] != 'four_horsemen.fear_of_failure' or row['support'] < 0.6 for row in report['candidate_mechanisms'])
 
 
