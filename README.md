@@ -142,6 +142,8 @@ The next implementation slice is a starter experience package: a versioned proto
 
 The starter workspace is now in `experience/`. Run `npm run validate:experience -- --experience-dir experience` to execute the four golden cases through the workspace protocol and emit `experience-validation-receipt-v1.json`. A creator-facing revision can change the presentation surface and rerun the same command; missing surfaces or protocol regressions fail closed. The workspace carries a portable deterministic engine and the validator compares its outputs with the protected canonical engine, so semantic drift is visible rather than silently accepted. This is a local handoff fixture, not a deployed product or Corey validation.
 
+The workspace now also includes a creator calibration surface at `/creator/`. It renders the synthetic Judge the Judge packet, captures judgments and corrections in browser-local storage, and exports a draft receipt without transmitting anything. `npm run calibration:fixture` compiles the repository-side synthetic receipt; it is plumbing verification, not Corey adjudication.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.

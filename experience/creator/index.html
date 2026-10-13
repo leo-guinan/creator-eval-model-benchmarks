@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Judge the Judge · Corey calibration</title>
+  <meta name="calibration-version" content="creator-calibration.v1">
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #151414; color: #eee8df; }
+    body { max-width: 900px; margin: auto; padding: 2rem 1rem 5rem; }
+    h1 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1; }
+    .notice { border-left: 3px solid #d1a866; padding: .75rem 1rem; background: #211e1a; }
+    .card { border: 1px solid #55483b; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    label { display: block; margin: .5rem 0; }
+    textarea, select { width: 100%; box-sizing: border-box; color: inherit; background: #211e1a; border: 1px solid #6a5947; border-radius: 6px; padding: .65rem; }
+    button { color: #171513; background: #d1a866; border: 0; border-radius: 999px; padding: .7rem 1rem; margin: .5rem .5rem .5rem 0; cursor: pointer; }
+    [role=status] { min-height: 1.5rem; color: #d1a866; }
+  </style>
+</head>
+<body>
+  <p>COREY CALIBRATION · creator-calibration.v1</p>
+  <h1>Judge the Judge</h1>
+  <p class="notice">Review the proposed judgment. This workspace records corrections locally in your browser. It does not send responses or claim that this synthetic packet is your actual judgment.</p>
+  <main id="cases"></main>
+  <button id="export" type="button">Export browser-local calibration receipt</button>
+  <button id="reset" type="button">Reset</button>
+  <p id="status" role="status"></p>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

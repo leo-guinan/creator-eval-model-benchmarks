@@ -6,6 +6,7 @@
     "test": "python3 -m pytest -q",
     "golden": "node scripts/run_golden_cases.mjs",
     "validate:experience": "node scripts/validate_experience.mjs",
-    "syntax": "node --check src/site-prompt.js && node --check src/openrouter.js && node --check src/eval-architecture.js && node --check experience/eval/protocol.js && node --check experience/app/app.js && node --check scripts/run_corey_benchmark.mjs && node --check scripts/run_golden_cases.mjs && node --check scripts/validate_experience.mjs"
+    "calibration:fixture": "node scripts/compile_creator_calibration.mjs",
+    "syntax": "node --check src/site-prompt.js && node --check src/openrouter.js && node --check src/eval-architecture.js && node --check experience/eval/protocol.js && node --check experience/app/app.js && node --check experience/creator/app.js && node --check scripts/run_corey_benchmark.mjs && node --check scripts/run_golden_cases.mjs && node --check scripts/compile_creator_calibration.mjs && node --check scripts/validate_experience.mjs"
   }
 }

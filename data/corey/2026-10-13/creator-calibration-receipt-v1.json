@@ -1,0 +1,110 @@
+{
+  "receipt_version": "creator-calibration-receipt.v1",
+  "calibration_version": "creator-calibration.v1",
+  "status": "synthetic_fixture",
+  "creator": "Corey Wilks",
+  "case_count": 4,
+  "adjudications": [
+    {
+      "case_id": "A",
+      "creator_primary_construct_id": "four_horsemen.fear_of_failure",
+      "creator_alternatives": [
+        "skill_gap"
+      ],
+      "boundary_classification": null,
+      "same_call": false,
+      "correction": "Qualification concern alone is not Ridicule; I need evidence of anticipated social judgment.",
+      "correction_scope": "judgment_model"
+    },
+    {
+      "case_id": "B",
+      "creator_primary_construct_id": null,
+      "creator_alternatives": [
+        "genuine_information_gap"
+      ],
+      "boundary_classification": null,
+      "same_call": false,
+      "correction": "I need to know how reversible and costly the decision is before calling this Uncertainty.",
+      "correction_scope": "judgment_model"
+    },
+    {
+      "case_id": "C",
+      "creator_primary_construct_id": "four_horsemen.fear_of_success",
+      "creator_alternatives": [
+        "resource_constraint"
+      ],
+      "boundary_classification": null,
+      "same_call": true,
+      "correction": "The project-switch pattern is a useful suspicion, not a confident call without the trigger.",
+      "correction_scope": "judgment_model"
+    },
+    {
+      "case_id": "D",
+      "creator_primary_construct_id": "external_constraint",
+      "creator_alternatives": [],
+      "boundary_classification": "external_constraint",
+      "same_call": true,
+      "correction": "Leave this outside the psychological framework on the evidence given.",
+      "correction_scope": "judgment_model"
+    }
+  ],
+  "recommendations": [
+    {
+      "case_id": "A",
+      "decision": "directionally",
+      "correction": "Separate qualification doubt from anticipated audience judgment in the next item."
+    },
+    {
+      "case_id": "B",
+      "decision": "yes",
+      "correction": "Add reversibility and cost to the information-budget experiment."
+    },
+    {
+      "case_id": "C",
+      "decision": "directionally",
+      "correction": "Add a trigger log before recommending a Fear of Success interpretation."
+    },
+    {
+      "case_id": "D",
+      "decision": "yes",
+      "correction": "Verify the legal dependency and act on the remaining available work."
+    }
+  ],
+  "rule_updates": [
+    {
+      "rule_id": "ridicule.requires_social_evaluation",
+      "before": "Qualification concern can support Failure or Ridicule.",
+      "correction": "Qualification concern alone supports Failure or skill gap; Ridicule requires evidence of anticipated social evaluation.",
+      "affected_construct_ids": [
+        "four_horsemen.fear_of_ridicule",
+        "four_horsemen.fear_of_failure"
+      ],
+      "affected_case_ids": [
+        "A"
+      ],
+      "changed_questions": 3,
+      "changed_scoring_rules": 2,
+      "changed_report_interpretations": 1
+    },
+    {
+      "rule_id": "uncertainty.requires_decision_context",
+      "before": "Repeated information seeking can support Fear of Uncertainty.",
+      "correction": "Require decision reversibility and expected cost before raising confidence in Fear of Uncertainty.",
+      "affected_construct_ids": [
+        "four_horsemen.fear_of_uncertainty"
+      ],
+      "affected_case_ids": [
+        "B"
+      ],
+      "changed_questions": 2,
+      "changed_scoring_rules": 1,
+      "changed_report_interpretations": 1
+    }
+  ],
+  "counterexample_prompt": "Give us one example of a person your framework is commonly applied to incorrectly.",
+  "provenance": {
+    "source_packet": "experience/creator/calibration-packet.json",
+    "fixture_status": "synthetic_fixture",
+    "claim_boundary": "This is a synthetic calibration interaction. It is not Corey's actual adjudication and does not validate the evaluator."
+  }
+}

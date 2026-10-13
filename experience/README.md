@@ -27,3 +27,13 @@ npm run validate:experience -- --experience-dir experience
 A passing validation writes a receipt under `data/corey/2026-10-13/`. The receipt keeps `judgment_model_version`, `protocol_version`, and `experience_version` separate. Cosmetic changes should pass without creator review; changes to the protocol or measurement-sensitive inputs must stop for review.
 
 This is a starter workspace, not a production deployment. Its cases are synthetic and its results do not establish that the evaluator matches Corey.
+
+Creator calibration surface:
+
+- open `http://127.0.0.1:8765/creator/` after starting the local server;
+- review the four Judge the Judge cases;
+- choose exactly right, mostly right, wrong, or missing something;
+- record a correction and recommendation;
+- export a browser-local draft receipt.
+
+The static packet is explicitly synthetic. The browser export transmits nothing. The repository-side fixture compiler is `npm run calibration:fixture` and writes a synthetic receipt for contract testing only.
