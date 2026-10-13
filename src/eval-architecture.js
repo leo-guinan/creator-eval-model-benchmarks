@@ -32,10 +32,32 @@ export function classifyExperienceChange({ changedPaths = [], changedFields = []
     : { risk: 'presentation_safe', requires_creator_review: false, reasons: [] };
 }
 
-export function buildPublishGate({ experienceChanges = {}, protocolResults = [] } = {}) {
+export function validateConstitution(reports, constitution) {
+  const errors = [];
+  const byId = new Map(reports.map((row) => [row.case_id, row]));
+  for (const rule of constitution.rules || []) {
+    if (rule.id === 'preserve_ambiguity') {
+      const row = byId.get('A');
+      if (!row || row.primary_candidate !== null || !row.classification_withheld) errors.push(rule.id);
+    } else if (rule.id === 'preserve_external_constraints') {
+      const primary = byId.get('D')?.primary_candidate;
+      if (!primary || primary.construct_id !== 'external_constraint') errors.push(rule.id);
+    } else if (rule.id === 'preserve_alternatives') {
+      for (const [caseId, alternative] of [['A', 'skill_gap'], ['B', 'genuine_information_gap']]) {
+        if (!(byId.get(caseId)?.alternative_explanations_survived || []).includes(alternative)) errors.push(`${rule.id}:${caseId}`);
+      }
+    } else if (rule.id === 'claim_boundary_required') {
+      for (const row of reports) if (!row.claim_boundary || row.claim_boundary === 'MISSING') errors.push(`${rule.id}:${row.case_id}`);
+    }
+  }
+  return errors;
+}
+
+export function buildPublishGate({ experienceChanges = {}, protocolResults = [], constitution } = {}) {
   const change = classifyExperienceChange(experienceChanges);
   const reasons = [...change.reasons];
   for (const result of protocolResults) reasons.push(...validateProtocolResult(result));
+  if (constitution && protocolResults.length) reasons.push(...validateConstitution(protocolResults, constitution));
   return reasons.length
     ? { status: 'review_required', reasons: [...new Set(reasons)].sort() }
     : { status: 'publishable', reasons: [] };

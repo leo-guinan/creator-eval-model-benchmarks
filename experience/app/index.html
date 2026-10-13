@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corey's Four Horsemen — starter experience</title>
+  <meta name="experience-version" content="corey-starter.v1">
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #171513; color: #eee7dc; }
+    body { max-width: 760px; margin: 0 auto; padding: 3rem 1.25rem; }
+    .eyebrow { color: #c9a875; letter-spacing: .12em; text-transform: uppercase; font-size: .75rem; }
+    h1 { font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1; max-width: 10ch; }
+    .card { border: 1px solid #635344; border-radius: 14px; padding: 1.25rem; background: #211d19; }
+    button { color: #171513; background: #c9a875; border: 0; border-radius: 999px; padding: .7rem 1rem; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    [role=status] { color: #c9a875; min-height: 1.5rem; }
+  </style>
+</head>
+<body>
+  <p class="eyebrow">Corey starter experience · corey-starter.v1</p>
+  <h1>What keeps the next move waiting?</h1>
+  <p>This is a presentation shell. The judgment model remains behind the protocol.</p>
+  <section class="card" aria-live="polite">
+    <p id="item">Loading the first case…</p>
+    <button id="begin" type="button">Begin</button>
+    <p id="status" role="status"></p>
+  </section>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

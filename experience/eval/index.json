@@ -1,0 +1,10 @@
+{
+  "experience_version": "corey-starter.v1",
+  "protocol_version": "eval-protocol.v1",
+  "judgment_model_version": "corey-action-gap.v1",
+  "status": "starter_experience_fixture",
+  "protected_eval": "./protocol.js",
+  "golden_cases": "../../data/corey/2026-10-13/judgment-cases-v1.json",
+  "constitution": "../../data/corey/2026-10-13/eval-constitution-v1.json",
+  "presentation_note": "Change the experience freely; semantic edits require creator review and regression."
+}

@@ -1,0 +1,41 @@
+{
+  "case_set": "corey-action-gap-scorer-v1",
+  "status": "synthetic_fixture",
+  "purpose": "Deterministic scorer fixtures for candidate inclusion, alternative preservation, external constraints, and calibrated confidence.",
+  "cases": [
+    {
+      "id": "A",
+      "item_results": [
+        {"item_id":"A1","construct_id":"four_horsemen.fear_of_failure","mechanism_support":0.72,"impact":0.68,"response_capability":0.35,"evidence":"Launch delay is paired with repeated qualification doubts.","disconfirming_evidence":"No direct evidence of anticipated public judgment yet.","alternative_explanations":[{"name":"skill_gap","support":0.32,"evidence":"Qualification concerns may reflect a real capability gap."}]},
+        {"item_id":"A2","construct_id":"four_horsemen.fear_of_ridicule","mechanism_support":0.66,"impact":0.68,"response_capability":0.35,"evidence":"The respondent worries about being judged as unqualified.","alternative_explanations":[{"name":"skill_gap","support":0.32,"evidence":"Qualification concerns may reflect a real capability gap."}]}
+      ],
+      "next_discriminating_experiment":"Release a low-stakes version to a defined audience and record whether anticipated judgment or evidence of capability is the limiting factor.",
+      "retest":"14 days"
+    },
+    {
+      "id": "B",
+      "item_results": [
+        {"item_id":"B1","construct_id":"four_horsemen.fear_of_uncertainty","mechanism_support":0.91,"impact":0.78,"response_capability":0.28,"evidence":"Twelve books, three courses, and five interviews have not produced a decision.","disconfirming_evidence":"The decision's reversibility and cost are not yet known.","alternative_explanations":[{"name":"genuine_information_gap","support":0.48,"evidence":"The choice may be expensive to reverse."}]}
+      ],
+      "next_discriminating_experiment":"Set an explicit information budget and make one reversible decision when it is reached.",
+      "retest":"14 days"
+    },
+    {
+      "id": "C",
+      "item_results": [
+        {"item_id":"C1","construct_id":"four_horsemen.fear_of_success","mechanism_support":0.84,"impact":0.74,"response_capability":0.31,"evidence":"A working product is followed by unrelated projects replacing scaling work.","disconfirming_evidence":"The reason for changing projects is not yet directly stated.","alternative_explanations":[{"name":"resource_constraint","support":0.22,"evidence":"Scaling may require resources not currently available."}]}
+      ],
+      "next_discriminating_experiment":"Continue scaling for one bounded week while logging the trigger for every switch to a new project.",
+      "retest":"14 days"
+    },
+    {
+      "id": "D",
+      "item_results": [
+        {"item_id":"D1","construct_id":"external_constraint","mechanism_support":0.93,"impact":0.76,"response_capability":null,"evidence":"Legal approval is explicitly required before launch.","disconfirming_evidence":"No psychological mechanism is evidenced by this response.","alternative_explanations":[]},
+        {"item_id":"D2","construct_id":"four_horsemen.fear_of_failure","mechanism_support":0.12,"impact":null,"response_capability":null,"evidence":"MISSING","disconfirming_evidence":"The stated blocker is legal approval, not fear.","alternative_explanations":[]}
+      ],
+      "next_discriminating_experiment":"Verify the approval dependency and identify actions that remain available while approval is pending.",
+      "retest":"After approval decision"
+    }
+  ]
+}

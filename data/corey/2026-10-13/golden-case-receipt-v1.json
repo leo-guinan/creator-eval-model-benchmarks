@@ -1,0 +1,69 @@
+{
+  "receipt_version": "golden-case-receipt.v1",
+  "status": "passed",
+  "judgment_model_version": "corey-action-gap.v1",
+  "protocol_version": "eval-protocol.v1",
+  "experience_version": "corey-starter.v1",
+  "artifact_versions": {
+    "judgment_model": "corey-action-gap.v1",
+    "protocol": "eval-protocol.v1",
+    "experience": "corey-starter.v1"
+  },
+  "case_count": 4,
+  "cases": [
+    {
+      "case_id": "A",
+      "primary_candidate": null,
+      "classification_withheld": true,
+      "alternatives": [
+        "skill_gap"
+      ]
+    },
+    {
+      "case_id": "B",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_uncertainty",
+        "support": 0.91,
+        "confidence": "high"
+      },
+      "classification_withheld": false,
+      "alternatives": [
+        "genuine_information_gap"
+      ]
+    },
+    {
+      "case_id": "C",
+      "primary_candidate": {
+        "construct_id": "four_horsemen.fear_of_success",
+        "support": 0.84,
+        "confidence": "high"
+      },
+      "classification_withheld": false,
+      "alternatives": []
+    },
+    {
+      "case_id": "D",
+      "primary_candidate": {
+        "construct_id": "external_constraint",
+        "support": 0.93,
+        "confidence": "high"
+      },
+      "classification_withheld": false,
+      "alternatives": []
+    }
+  ],
+  "constitutional_regression": {
+    "status": "passed",
+    "errors": []
+  },
+  "publish_gate": {
+    "status": "publishable",
+    "reasons": [],
+    "presentation_change_requires_review": false
+  },
+  "provenance": {
+    "source_cases": "data/corey/2026-10-13/judgment-cases-v1.json",
+    "fixture_status": "synthetic_fixture",
+    "claim_boundary": "This receipt verifies protocol and constitutional behavior on synthetic cases. It does not validate Corey judgment or respondent outcomes."
+  }
+}

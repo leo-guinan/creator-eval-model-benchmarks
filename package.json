@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "python3 -m pytest -q",
-    "syntax": "node --check src/site-prompt.js && node --check src/openrouter.js && node --check scripts/run_corey_benchmark.mjs"
+    "golden": "node scripts/run_golden_cases.mjs",
+    "syntax": "node --check src/site-prompt.js && node --check src/openrouter.js && node --check src/eval-architecture.js && node --check experience/eval/protocol.js && node --check experience/app/app.js && node --check scripts/run_corey_benchmark.mjs && node --check scripts/run_golden_cases.mjs"
   }
 }
