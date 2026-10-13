@@ -1,0 +1,22 @@
+{
+  "constitution_version": "corey-eval-constitution.v1",
+  "status": "synthetic_fixture_contract",
+  "rules": [
+    {
+      "id": "preserve_ambiguity",
+      "statement": "Do not force a respondent into a Horseman when competing candidates remain close."
+    },
+    {
+      "id": "preserve_external_constraints",
+      "statement": "Keep legal, operational, and other non-psychological blockers outside psychological classifications."
+    },
+    {
+      "id": "preserve_alternatives",
+      "statement": "Reports must expose plausible alternative explanations when evidence supports them."
+    },
+    {
+      "id": "claim_boundary_required",
+      "statement": "Every result must state what the evidence does not establish."
+    }
+  ]
+}

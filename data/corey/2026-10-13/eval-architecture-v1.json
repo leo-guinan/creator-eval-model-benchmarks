@@ -1,0 +1,74 @@
+{
+  "architecture_version": "eval-architecture.v1",
+  "creator": "corey-wilks",
+  "status": "synthetic_fixture_contract",
+  "layers": [
+    {
+      "id": "judgment_model",
+      "answers": "what_does_this_eval_mean",
+      "protected_capabilities": [
+        "constructs",
+        "relationships",
+        "measures",
+        "scoring",
+        "competing_explanations",
+        "confidence",
+        "intervention",
+        "retest",
+        "provenance",
+        "creator_calibration"
+      ],
+      "measurement_sensitive_paths": [
+        "eval/constructs.json",
+        "eval/measures.json",
+        "eval/items.json",
+        "eval/scoring.json",
+        "eval/calibration.json"
+      ]
+    },
+    {
+      "id": "eval_protocol",
+      "answers": "what_must_the_experience_accomplish",
+      "operations": [
+        "get_next_item",
+        "submit_response",
+        "request_artifact",
+        "get_candidate_mechanisms",
+        "get_result",
+        "get_next_experiment",
+        "retest"
+      ],
+      "canonical_result_fields": [
+        "construct",
+        "candidate_mechanisms",
+        "supporting_evidence",
+        "contradicting_evidence",
+        "alternatives",
+        "confidence",
+        "impact",
+        "response_capability",
+        "recommended_experiment",
+        "claim_boundary"
+      ]
+    },
+    {
+      "id": "experience",
+      "answers": "how_does_this_feel",
+      "presentation_safe_paths": [
+        "app/theme/**",
+        "app/components/**",
+        "app/pages/**",
+        "app/animations/**",
+        "app/branding/**"
+      ],
+      "measurement_sensitive_paths": [
+        "app/items/**",
+        "app/scoring/**",
+        "app/result-copy/**"
+      ],
+      "creator_can_vibe_code": true
+    }
+  ],
+  "publish_rule": "presentation may change freely; semantic changes require creator review and constitutional regression",
+  "provenance_boundary": "model outputs are interpretations and hypotheses, not diagnoses, causal findings, or validated measures"
+}

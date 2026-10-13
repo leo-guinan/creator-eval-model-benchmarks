@@ -126,6 +126,20 @@ The second learned rule makes Ridicule require anticipated social evaluation rat
 
 V7 also decomposes Judgment Distance into mechanism agreement, alternative-explanation agreement, boundary agreement, and intervention agreement. In the synthetic run, aggregate distance moves from `0.2778` before correction to `0.0556` after rule application. This is a protocol demonstration, not a real Corey measurement.
 
+## V8 direction: locked judgment, stable protocol, free experience
+
+The first architecture slice is now explicit in `data/corey/2026-10-13/eval-architecture-v1.json`:
+
+- `judgment_model` is the protected semantic layer: constructs, measures, scoring, alternatives, creator calibration, provenance, interventions, and re-tests.
+- `eval_protocol` is the stable interface: item retrieval, response submission, artifact requests, candidate mechanisms, results, experiments, and re-tests.
+- `experience` is the vibe-codeable layer: layout, typography, animation, branding, and representation.
+
+`src/eval-architecture.js` and its offline contract tests classify changes as `presentation_safe` or `measurement_sensitive`. Question wording, response options, evidence requests, scenarios, scoring mappings, required artifacts, and result interpretations require creator review. A semantic change cannot hide inside a cosmetic redesign.
+
+The Corey constitution is captured in `data/corey/2026-10-13/eval-constitution-v1.json`. Its first rules preserve ambiguity, preserve external constraints, preserve plausible alternatives, and require claim boundaries. The current validator runs those rules against the V5 reports; it is an architecture guardrail, not evidence that the rules are Corey-approved.
+
+The next implementation slice is a starter experience package: a versioned protocol adapter, protected `/eval` export, `/app` presentation surface, golden-case runner, and a publish receipt that records judgment-model and experience versions separately.
+
 ## Boundaries
 
 Each page is bounded to the first 1.5 MB of its response and first 12,000 normalized text characters. Discovery stays same-host and is capped at five candidates. No authentication or private pages are used. The models see the same discovered source payload and prompt contract.
